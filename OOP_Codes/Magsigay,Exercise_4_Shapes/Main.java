@@ -13,7 +13,7 @@ public class Main {
         System.out.println("---------------------------------\n");
         s = new Triangle("Fuschia", 25, 30);
         getArea(s);
-
+//gfyfyfyfyfyf
         
     }
 
