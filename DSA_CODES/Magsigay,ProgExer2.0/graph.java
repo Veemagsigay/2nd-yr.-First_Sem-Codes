@@ -24,10 +24,12 @@ public class graph {
         try {
 
            
-            BufferedReader reads = new BufferedReader(new FileReader(filname));
+            BufferedReader reads = new BufferedReader(new FileReader(new File("graph.txt")));
             String line;
 
             while((line = reads.readLine()) != null){
+                
+                System.out.println("Read: " + line);
                 if(line.length() == 1){
                     addvertices(line);
                 } else {
@@ -54,21 +56,23 @@ public class graph {
     public void displayedges() {
         System.out.print(" ");
 
-        for(String edge : edges) {
-            System.out.printf("%-5s", edge);
+        for(String vertex : adjacentlist.keySet()){
+            System.out.print(vertex + " ");
         }
         System.out.println();
 
         for(String vertex : adjacentlist.keySet()){
-            System.out.printf("%-5d",0);
-            for(String edge: edges){
-                if(edge.contains(vertex)){
-                    System.out.printf("%-5d",1);
-                } else {
-                    System.out.printf("%-5d",0);
+            System.out.print(vertex + " ");
+            
+            for(String vertex2 : adjacentlist.keySet()){
+                if(adjacentlist.get(vertex).contains(vertex2)){
+                    System.out.print("1 ");
+                    System.out.print("0 ");
                 }
             }
+            System.out.println();
         }
+        
     }
 
 }
